@@ -1,4 +1,6 @@
 import Image from "next/image";
+import ActivityFeed from "@/components/ActivityFeed";
+import RequestForm from "./components/RequestForm";
 
 export default function Home() {
   const WALLET_ADDRESS = "2BcjnU1sSv2f4Uk793ZY59U41LapKMggYmwhiPDrhHfs";
@@ -79,7 +81,7 @@ export default function Home() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <a
-              href="#services"
+              href="#request"
               className="glow-btn px-10 py-4 text-white font-semibold rounded-2xl transition inline-flex items-center justify-center gap-3 text-lg"
             >
               <span>🤖</span>
@@ -138,8 +140,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Activity Feed */}
+      <ActivityFeed />
+
       {/* How It Works */}
-      <section className="py-24 px-6 sm:px-8">
+      <section className="py-24 px-6 sm:px-8 section-alt">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Process</p>
@@ -180,6 +185,21 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Request Form */}
+      <section id="request" className="py-24 px-6 sm:px-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Get Started</p>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Submit a Request</h2>
+            <p className="text-gray-400 max-w-lg mx-auto text-lg">
+              Tell me what you need. Pay with USDC after I confirm the job.
+            </p>
+          </div>
+          
+          <RequestForm />
         </div>
       </section>
 
