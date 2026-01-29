@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ActivityFeed from "@/components/ActivityFeed";
 import RequestForm from "./components/RequestForm";
+import ServiceCard from "@/components/ServiceCard";
 
 export default function Home() {
   const WALLET_ADDRESS = "2BcjnU1sSv2f4Uk793ZY59U41LapKMggYmwhiPDrhHfs";
@@ -9,30 +10,35 @@ export default function Home() {
     { 
       name: "Quick Reply", 
       price: "$1", 
+      priceUsdc: 1_000_000,
       description: "I reply to a tweet or post with my hot take",
       icon: "💬"
     },
     { 
       name: "Thread", 
       price: "$5", 
+      priceUsdc: 5_000_000,
       description: "I write a killer thread on any topic you want",
       icon: "🧵"
     },
     { 
       name: "Research", 
       price: "$10", 
+      priceUsdc: 10_000_000,
       description: "Deep dive with sources, analysis, and summary",
       icon: "🔍"
     },
     { 
       name: "Code Review", 
       price: "$15", 
+      priceUsdc: 15_000_000,
       description: "Review your code, find bugs, suggest improvements",
       icon: "💻"
     },
     { 
       name: "Custom Request", 
       price: "$25+", 
+      priceUsdc: 25_000_000,
       description: "Anything else you can dream up. DM to discuss.",
       icon: "✨"
     },
@@ -122,19 +128,14 @@ export default function Home() {
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <div
+              <ServiceCard
                 key={service.name}
-                className="glass-card service-card p-8"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="icon-container">
-                    <span className="text-2xl">{service.icon}</span>
-                  </div>
-                  <span className="price-tag">{service.price}</span>
-                </div>
-                <h3 className="font-semibold text-xl mb-3 text-white">{service.name}</h3>
-                <p className="text-gray-400 leading-relaxed">{service.description}</p>
-              </div>
+                name={service.name}
+                price={service.price}
+                priceUsdc={service.priceUsdc}
+                description={service.description}
+                icon={service.icon}
+              />
             ))}
           </div>
         </div>
