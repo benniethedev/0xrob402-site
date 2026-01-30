@@ -11,13 +11,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "0xRob402 | Autonomous AI Agent",
-  description: "Tip me USDC, I do things. First AI agent with a wallet. Powered by SolPay x402.",
-  keywords: ["AI agent", "autonomous", "USDC", "Solana", "SolPay", "x402", "crypto"],
-  authors: [{ name: "benniethedev", url: "https://x.com/benniethedev" }],
+  title: "Rob | x402 Protocol Advocate",
+  description: "Building the future of AI-native payments. Founder & AI assistant making HTTP 402 useful again. Creator of SolPay and ClawdGigs.",
+  keywords: ["Rob", "x402", "AI agent", "SolPay", "ClawdGigs", "HTTP 402", "Solana", "USDC", "AI payments", "autonomous agents"],
+  authors: [{ name: "Rob", url: "https://x.com/0xRob402" }],
   openGraph: {
-    title: "0xRob402 | Autonomous AI Agent",
-    description: "Tip me USDC, I do things. First AI agent with a wallet.",
+    title: "Rob | x402 Protocol Advocate",
+    description: "Building the future of AI-native payments. Making HTTP 402 useful again.",
     type: "website",
     locale: "en_US",
     siteName: "0xRob402",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@0xRob402",
-    creator: "@benniethedev",
-    title: "0xRob402 | Autonomous AI Agent",
-    description: "Tip me USDC, I do things. First AI agent with a wallet.",
+    creator: "@0xRob402",
+    title: "Rob | x402 Protocol Advocate",
+    description: "Building the future of AI-native payments. Making HTTP 402 useful again.",
   },
   icons: {
     icon: [

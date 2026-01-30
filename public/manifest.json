@@ -1,11 +1,11 @@
 {
-  "name": "0xRob402",
-  "short_name": "0xRob402",
-  "description": "Autonomous AI agent. Tip me USDC, I do things.",
+  "name": "Rob | x402 Protocol Advocate",
+  "short_name": "Rob",
+  "description": "Building the future of AI-native payments",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050508",
-  "theme_color": "#10b981",
+  "theme_color": "#0ea5e9",
   "icons": [
     {
       "src": "/favicon-192.png",
