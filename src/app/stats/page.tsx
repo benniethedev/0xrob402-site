@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import StatsChart from '@/components/StatsChart';
 import StatCard from '@/components/StatCard';
+import ThemeToggle from '@/components/ThemeToggle';
 
 // Mock data - in production this would come from API/database
 const mockStats = {
@@ -64,19 +65,20 @@ export default function StatsPage() {
   return (
     <div className="min-h-screen overflow-hidden">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#050508]/80 backdrop-blur-xl border-b border-white/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--header-bg)] backdrop-blur-xl border-b border-[var(--border-subtle)]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition">
             <Image src="/logo.png" alt="0xRob402" width={32} height={32} />
-            <span className="font-semibold text-white">0xRob402</span>
+            <span className="font-semibold text-[var(--text-primary)]">0xRob402</span>
           </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/" className="text-gray-400 hover:text-white transition text-sm">
+          <nav className="flex items-center gap-4 sm:gap-6">
+            <Link href="/" className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition text-sm">
               Home
             </Link>
-            <Link href="/stats" className="text-cyan-400 text-sm font-medium">
+            <Link href="/stats" className="text-[var(--accent)] text-sm font-medium">
               Stats
             </Link>
+            <ThemeToggle />
           </nav>
         </div>
       </header>
@@ -85,14 +87,14 @@ export default function StatsPage() {
       <section className="pt-32 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <span className="badge inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-medium text-cyan-400 mb-6">
-              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+            <span className="badge inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-medium text-[var(--accent)] mb-6">
+              <span className="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse"></span>
               Live Analytics
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gradient">
               Stats Dashboard
             </h1>
-            <p className="text-gray-400 text-lg max-w-xl mx-auto">
+            <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto">
               Real-time analytics on payments, requests, and performance. Full transparency.
             </p>
           </div>
@@ -154,8 +156,8 @@ export default function StatsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Activity Trends</h2>
-              <p className="text-gray-400">Track requests and revenue over time</p>
+              <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Activity Trends</h2>
+              <p className="text-[var(--text-secondary)]">Track requests and revenue over time</p>
             </div>
             <div className="flex gap-2">
               {(['daily', 'weekly', 'monthly'] as const).map((range) => (
@@ -176,13 +178,13 @@ export default function StatsPage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="glass-card p-6">
-              <h3 className="text-lg font-semibold text-white mb-1">Requests</h3>
-              <p className="text-gray-500 text-sm mb-6">Number of completed requests</p>
+              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-1">Requests</h3>
+              <p className="text-[var(--text-muted)] text-sm mb-6">Number of completed requests</p>
               <StatsChart data={chartData} dataKey="value" color="#0ea5e9" />
             </div>
             <div className="glass-card p-6">
-              <h3 className="text-lg font-semibold text-white mb-1">Revenue</h3>
-              <p className="text-gray-500 text-sm mb-6">USDC earned in dollars</p>
+              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-1">Revenue</h3>
+              <p className="text-[var(--text-muted)] text-sm mb-6">USDC earned in dollars</p>
               <StatsChart data={chartData} dataKey="revenue" color="#10b981" prefix="$" />
             </div>
           </div>
@@ -193,8 +195,8 @@ export default function StatsPage() {
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2">Service Breakdown</h2>
-            <p className="text-gray-400">Revenue and volume by service type</p>
+            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Service Breakdown</h2>
+            <p className="text-[var(--text-secondary)]">Revenue and volume by service type</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -211,10 +213,10 @@ export default function StatsPage() {
                     </div>
                     <div className="flex-grow">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-white font-medium">{service.name}</span>
-                        <span className="text-cyan-400 font-semibold">${service.revenue}</span>
+                        <span className="text-[var(--text-primary)] font-medium">{service.name}</span>
+                        <span className="text-[var(--accent)] font-semibold">${service.revenue}</span>
                       </div>
-                      <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                      <div className="h-2 bg-[var(--card-bg)] rounded-full overflow-hidden">
                         <div
                           className="h-full rounded-full transition-all duration-500"
                           style={{
@@ -223,7 +225,7 @@ export default function StatsPage() {
                           }}
                         />
                       </div>
-                      <p className="text-gray-500 text-xs mt-1">{service.count} requests</p>
+                      <p className="text-[var(--text-muted)] text-xs mt-1">{service.count} requests</p>
                     </div>
                   </div>
                 ))}
@@ -263,8 +265,8 @@ export default function StatsPage() {
                   ).elements}
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-3xl font-bold text-white">${totalServiceRevenue}</span>
-                  <span className="text-gray-500 text-sm">Total Revenue</span>
+                  <span className="text-3xl font-bold text-[var(--text-primary)]">${totalServiceRevenue}</span>
+                  <span className="text-[var(--text-muted)] text-sm">Total Revenue</span>
                 </div>
               </div>
 
@@ -275,7 +277,7 @@ export default function StatsPage() {
                       className="w-3 h-3 rounded-full"
                       style={{ background: service.color }}
                     />
-                    <span className="text-gray-400 text-xs">{service.name}</span>
+                    <span className="text-[var(--text-secondary)] text-xs">{service.name}</span>
                   </div>
                 ))}
               </div>
@@ -288,8 +290,8 @@ export default function StatsPage() {
       <section className="py-16 px-6 section-alt">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2">Embed Widget</h2>
-            <p className="text-gray-400">Share your stats publicly with this embeddable widget</p>
+            <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Embed Widget</h2>
+            <p className="text-[var(--text-secondary)]">Share your stats publicly with this embeddable widget</p>
           </div>
 
           <div className="glass-card p-8">
@@ -297,30 +299,30 @@ export default function StatsPage() {
               <div className="flex items-center gap-4">
                 <Image src="/logo.png" alt="0xRob402" width={48} height={48} />
                 <div>
-                  <h3 className="font-bold text-white text-lg">0xRob402</h3>
-                  <p className="text-gray-500 text-sm">Autonomous AI Agent</p>
+                  <h3 className="font-bold text-[var(--text-primary)] text-lg">0xRob402</h3>
+                  <p className="text-[var(--text-muted)] text-sm">Autonomous AI Agent</p>
                 </div>
               </div>
               <div className="flex gap-8">
                 <div>
-                  <p className="text-2xl font-bold text-cyan-400">${mockStats.totalRevenue}</p>
-                  <p className="text-gray-500 text-xs">Earned</p>
+                  <p className="text-2xl font-bold text-[var(--accent)]">${mockStats.totalRevenue}</p>
+                  <p className="text-[var(--text-muted)] text-xs">Earned</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{mockStats.totalRequests}</p>
-                  <p className="text-gray-500 text-xs">Requests</p>
+                  <p className="text-2xl font-bold text-[var(--text-primary)]">{mockStats.totalRequests}</p>
+                  <p className="text-[var(--text-muted)] text-xs">Requests</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-emerald-400">{mockStats.completionRate}%</p>
-                  <p className="text-gray-500 text-xs">Success</p>
+                  <p className="text-[var(--text-muted)] text-xs">Success</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="mt-6 text-center">
-            <p className="text-gray-500 text-sm mb-3">Copy embed code:</p>
-            <code className="inline-block bg-black/50 px-4 py-2 rounded-lg text-cyan-400 text-xs font-mono border border-white/10 max-w-full overflow-x-auto">
+            <p className="text-[var(--text-muted)] text-sm mb-3">Copy embed code:</p>
+            <code className="inline-block bg-[var(--wallet-bg)] px-4 py-2 rounded-lg text-[var(--accent)] text-xs font-mono border border-[var(--card-border)] max-w-full overflow-x-auto">
               {`<iframe src="https://0xrob.solpay.cash/widget" width="400" height="100" />`}
             </code>
           </div>
@@ -328,20 +330,20 @@ export default function StatsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/5">
+      <footer className="py-12 px-6 border-t border-[var(--border-subtle)]">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <Image src="/logo.png" alt="0xRob402" width={36} height={36} className="opacity-70" />
-              <span className="text-gray-500 text-sm">© 2025 0xRob402</span>
+              <span className="text-[var(--text-muted)] text-sm">© 2025 0xRob402</span>
             </div>
-            <div className="flex items-center gap-8 text-sm text-gray-500">
-              <Link href="/" className="hover:text-cyan-400 transition">Home</Link>
+            <div className="flex items-center gap-8 text-sm text-[var(--text-muted)]">
+              <Link href="/" className="hover:text-[var(--accent)] transition">Home</Link>
               <a
                 href="https://x.com/benniethedev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cyan-400 transition"
+                className="hover:text-[var(--accent)] transition"
               >
                 Built by @benniethedev
               </a>
@@ -349,7 +351,7 @@ export default function StatsPage() {
                 href="https://solpay.cash"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cyan-400 transition"
+                className="hover:text-[var(--accent)] transition"
               >
                 Powered by SolPay
               </a>

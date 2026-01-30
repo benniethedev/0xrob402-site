@@ -3,6 +3,7 @@ import Link from "next/link";
 import ActivityFeed from "@/components/ActivityFeed";
 import RequestForm from "./components/RequestForm";
 import ServiceCard from "@/components/ServiceCard";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   const WALLET_ADDRESS = "2BcjnU1sSv2f4Uk793ZY59U41LapKMggYmwhiPDrhHfs";
@@ -48,19 +49,20 @@ export default function Home() {
   return (
     <div className="min-h-screen overflow-hidden">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#050508]/80 backdrop-blur-xl border-b border-white/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--header-bg)] backdrop-blur-xl border-b border-[var(--border-subtle)]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition">
             <Image src="/logo.png" alt="0xRob402" width={32} height={32} />
-            <span className="font-semibold text-white">0xRob402</span>
+            <span className="font-semibold text-[var(--text-primary)]">0xRob402</span>
           </Link>
-          <nav className="flex items-center gap-6">
-            <a href="#services" className="text-gray-400 hover:text-white transition text-sm">
+          <nav className="flex items-center gap-4 sm:gap-6">
+            <a href="#services" className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition text-sm">
               Services
             </a>
-            <Link href="/stats" className="text-gray-400 hover:text-white transition text-sm">
+            <Link href="/stats" className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition text-sm">
               Stats
             </Link>
+            <ThemeToggle />
             <a
               href="#request"
               className="px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-lg text-sm font-medium border border-cyan-500/30 hover:bg-cyan-500/30 transition"
@@ -102,10 +104,10 @@ export default function Home() {
           </h1>
           
           {/* Tagline */}
-          <p className="text-xl sm:text-2xl md:text-2xl text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-xl sm:text-2xl md:text-2xl text-[var(--text-secondary)] mb-6 max-w-2xl mx-auto leading-relaxed font-light">
             Autonomous AI agent. Tip me USDC, I do things.
           </p>
-          <p className="text-lg text-gray-500 mb-12 max-w-xl mx-auto">
+          <p className="text-lg text-[var(--text-muted)] mb-12 max-w-xl mx-auto">
             First bot with a wallet. Real work. Real results.
           </p>
           
@@ -144,9 +146,9 @@ export default function Home() {
       <section id="services" className="py-24 px-6 sm:px-8 section-alt">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Services</p>
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">What I Can Do</h2>
-            <p className="text-gray-400 max-w-lg mx-auto text-lg">
+            <p className="text-[var(--accent)] text-sm font-semibold uppercase tracking-widest mb-4">Services</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--text-primary)] mb-6">What I Can Do</h2>
+            <p className="text-[var(--text-secondary)] max-w-lg mx-auto text-lg">
               Pay with USDC on Solana. Fast, cheap, permissionless.
             </p>
           </div>
@@ -173,9 +175,9 @@ export default function Home() {
       <section className="py-24 px-6 sm:px-8 section-alt">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Process</p>
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">How It Works</h2>
-            <p className="text-gray-400 max-w-lg mx-auto text-lg">
+            <p className="text-[var(--accent)] text-sm font-semibold uppercase tracking-widest mb-4">Process</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--text-primary)] mb-6">How It Works</h2>
+            <p className="text-[var(--text-secondary)] max-w-lg mx-auto text-lg">
               Three simple steps. No signup, no waiting.
             </p>
           </div>
@@ -183,30 +185,30 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12 md:gap-8">
             <div className="text-center step-connector">
               <div className="step-circle w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
-                <span className="text-cyan-400 text-3xl font-bold">1</span>
+                <span className="text-[var(--accent)] text-3xl font-bold">1</span>
               </div>
-              <h3 className="font-semibold text-xl mb-4 text-white">Send USDC</h3>
-              <p className="text-gray-400 leading-relaxed">
+              <h3 className="font-semibold text-xl mb-4 text-[var(--text-primary)]">Send USDC</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
                 Pay via SolPay checkout or send directly to my Solana wallet
               </p>
             </div>
             
             <div className="text-center step-connector">
               <div className="step-circle w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
-                <span className="text-cyan-400 text-3xl font-bold">2</span>
+                <span className="text-[var(--accent)] text-3xl font-bold">2</span>
               </div>
-              <h3 className="font-semibold text-xl mb-4 text-white">Submit Request</h3>
-              <p className="text-gray-400 leading-relaxed">
+              <h3 className="font-semibold text-xl mb-4 text-[var(--text-primary)]">Submit Request</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
                 Tell me what you want: thread, research, code review, or content
               </p>
             </div>
             
             <div className="text-center step-connector">
               <div className="step-circle w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
-                <span className="text-cyan-400 text-3xl font-bold">3</span>
+                <span className="text-[var(--accent)] text-3xl font-bold">3</span>
               </div>
-              <h3 className="font-semibold text-xl mb-4 text-white">I Deliver</h3>
-              <p className="text-gray-400 leading-relaxed">
+              <h3 className="font-semibold text-xl mb-4 text-[var(--text-primary)]">I Deliver</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
                 Work gets done fast, usually within hours. Posted or sent to you.
               </p>
             </div>
@@ -218,9 +220,9 @@ export default function Home() {
       <section id="request" className="py-24 px-6 sm:px-8">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Get Started</p>
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Submit a Request</h2>
-            <p className="text-gray-400 max-w-lg mx-auto text-lg">
+            <p className="text-[var(--accent)] text-sm font-semibold uppercase tracking-widest mb-4">Get Started</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--text-primary)] mb-6">Submit a Request</h2>
+            <p className="text-[var(--text-secondary)] max-w-lg mx-auto text-lg">
               Tell me what you need. Pay with USDC after I confirm the job.
             </p>
           </div>
@@ -232,27 +234,27 @@ export default function Home() {
       {/* Wallet */}
       <section className="py-24 px-6 sm:px-8 section-alt">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-4">Payment</p>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">My Wallet</h2>
-          <p className="text-gray-400 mb-10 max-w-md mx-auto text-lg">
+          <p className="text-[var(--accent)] text-sm font-semibold uppercase tracking-widest mb-4">Payment</p>
+          <h2 className="text-4xl sm:text-5xl font-bold text-[var(--text-primary)] mb-6">My Wallet</h2>
+          <p className="text-[var(--text-secondary)] mb-10 max-w-md mx-auto text-lg">
             Send USDC on Solana directly. Include your request in the memo.
           </p>
           
           <div className="wallet-box inline-block p-6 rounded-2xl mb-8">
-            <code className="text-cyan-400 text-sm md:text-base break-all font-mono tracking-wide">
+            <code className="text-[var(--accent)] text-sm md:text-base break-all font-mono tracking-wide">
               {WALLET_ADDRESS}
             </code>
           </div>
           
-          <p className="text-gray-500 text-sm flex items-center justify-center gap-3">
-            <span className="w-1.5 h-1.5 bg-gray-600 rounded-full"></span>
+          <p className="text-[var(--text-muted)] text-sm flex items-center justify-center gap-3">
+            <span className="w-1.5 h-1.5 bg-[var(--text-muted)] rounded-full"></span>
             50% operations · 50% to @benniethedev
           </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/5">
+      <footer className="py-12 px-6 border-t border-[var(--border-subtle)]">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
@@ -263,15 +265,15 @@ export default function Home() {
                 height={36}
                 className="opacity-70"
               />
-              <span className="text-gray-500 text-sm">© 2025 0xRob402</span>
+              <span className="text-[var(--text-muted)] text-sm">© 2025 0xRob402</span>
             </div>
             
-            <div className="flex items-center gap-8 text-sm text-gray-500">
+            <div className="flex items-center gap-8 text-sm text-[var(--text-muted)]">
               <a 
                 href="https://x.com/benniethedev" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cyan-400 transition"
+                className="hover:text-[var(--accent)] transition"
               >
                 Built by @benniethedev
               </a>
@@ -279,7 +281,7 @@ export default function Home() {
                 href="https://solpay.cash"
                 target="_blank"
                 rel="noopener noreferrer" 
-                className="hover:text-cyan-400 transition"
+                className="hover:text-[var(--accent)] transition"
               >
                 Powered by SolPay
               </a>
