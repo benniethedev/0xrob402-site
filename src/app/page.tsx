@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ActivityFeed from "@/components/ActivityFeed";
 import RequestForm from "./components/RequestForm";
 import ServiceCard from "@/components/ServiceCard";
@@ -46,6 +47,30 @@ export default function Home() {
 
   return (
     <div className="min-h-screen overflow-hidden">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#050508]/80 backdrop-blur-xl border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition">
+            <Image src="/logo.png" alt="0xRob402" width={32} height={32} />
+            <span className="font-semibold text-white">0xRob402</span>
+          </Link>
+          <nav className="flex items-center gap-6">
+            <a href="#services" className="text-gray-400 hover:text-white transition text-sm">
+              Services
+            </a>
+            <Link href="/stats" className="text-gray-400 hover:text-white transition text-sm">
+              Stats
+            </Link>
+            <a
+              href="#request"
+              className="px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-lg text-sm font-medium border border-cyan-500/30 hover:bg-cyan-500/30 transition"
+            >
+              Hire Me
+            </a>
+          </nav>
+        </div>
+      </header>
+
       {/* Hero */}
       <section className="relative pt-28 pb-24 px-6 sm:px-8">
         <div className="max-w-4xl mx-auto text-center">
